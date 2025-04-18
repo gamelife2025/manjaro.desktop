@@ -24,3 +24,27 @@ sudo pacman -S fakeroot
 
 # 在商店搜索google-chrome，选中并完成安装
 ```
+
+### 触摸板手势
+> see:https://github.com/bulletmark/libinput-gestures
+1. 安装依赖项
+```
+sudo pacman -S xdotool
+```
+2. 使用AUR安装此软件  
+链接:https://aur.archlinux.org/packages/libinput-gestures
+3. 配置权限
+```
+sudo gpasswd -a $USER input
+```
+4. 自启动
+```
+libinput-gestures-setup autostart start
+```
+5. 配置  
+```
+# vim ~/.config/libinput-gestures.conf
+# 三指上滑 切换窗口
+gesture swipe up 3 xdotool key ctrl+F10
+```
+6. 重启
